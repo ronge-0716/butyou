@@ -288,6 +288,10 @@ bot.on('message', async (msg) => {
             name:"say",
             value:"Botに文章を発言させることができます"
           },
+          {
+              name:"giveaway (時間) (当選できる人数) (景品)",
+              value:"gibeaway機能です。抽選を開けます"
+          }
         ]
         }
     }
