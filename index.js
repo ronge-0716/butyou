@@ -229,7 +229,7 @@ bot.on('message', async message =>{
 
 
     default:
-      if(command === "開発者")return;
+      if(command === "開発者" || command === "giveaway")return;
       message.channel.send("あっれぇ？そんなコマンドあったっけ...:thinking:おっかしいな～...")
 
     break
