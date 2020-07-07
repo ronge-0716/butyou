@@ -415,9 +415,9 @@ const manager = new GiveawaysManager(client, {
         reaction: "🎉"
     }
 });
-client.giveawaysManager = manager;
+bot.giveawaysManager = manager;
 
-client.on("message", (message) => {
+bot.on("message", (message) => {
 
     const ms = require("ms");
     const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
