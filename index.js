@@ -63,13 +63,13 @@ bot.on('message', async message =>{
 
   if(msg.includes("ぶちょー") || msg.includes("部長") || msg.includes("ぶちょう")){
     message.channel.send("よんだ？[壁]ω・｀)ﾋｮｺ")
-    const filter = msg => msg.author.id === message.author.id
-     const collected = await message.channel.awaitMessages(filter, { max: 1, time: 10000 })
-     const response = collected.first()
-    const m = response.content
-    if(response.content == "no" || response.content == "いや" || response.content == "いいえ" || response.content == "呼んでない" || response.content == "よんでない"){
-      message.channel.send("(´；ω；`)")
-    }
+    //const filter = msg => msg.author.id === message.author.id
+     //const collected = await message.channel.awaitMessages(filter, { max: 1, time: 10000 })
+     //const response = collected.first()
+    //const m = response.content
+    //if(response.content == "no" || response.content == "いや" || response.content == "いいえ" || response.content == "呼んでない" || response.content == "よんでない"){
+      //message.channel.send("(´；ω；`)")
+    //}
   }
 
 	if(message.content === `<@${bot.user.id}>`){
@@ -402,6 +402,55 @@ bot.on('message', message =>{
             });
         }
 })//グローバルチャット
+
+const { GiveawaysManager } = require("discord-giveaways");
+
+const manager = new GiveawaysManager(client, {
+    storage: "./giveaways.json",
+    updateCountdownEvery: 10000,
+    default: {
+        botsCanWin: false,
+        exemptPermissions: [ "MANAGE_MESSAGES", "ADMINISTRATOR" ],
+        embedColor: "#FF0000",
+        reaction: "🎉"
+    }
+});
+client.giveawaysManager = manager;
+
+client.on("message", (message) => {
+
+    const ms = require("ms");
+    const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+    const command = args.shift().toLowerCase();
+
+    if(command === "giveaway"){
+        bot.giveawaysManager.start(message.channel, {
+          time: ms(args[0]),
+          prize: args.slice(2).join(" "),
+          winnerCount: parseInt(args[1]),
+          reaction:"🎉",
+          messages: {
+            giveaway: "🎉🎉 **GIVEAWAY** 🎉🎉",
+            giveawayEnded: "🎉🎉 **GIVEAWAY ENDED** 🎉🎉",
+            timeRemaining: "残り時間: **{duration}**!",
+            inviteToParticipate: "🎉を押して抽選に参加しましょう！",
+            winMessage: "おめでとうございます！, {winners}!**{prize}**を手に入れました！!",
+            embedFooter: "Giveaways",
+            noWinner: "投票者がいなかったため、givewayは終了しました。",
+            hostedBy: "開催者: {user}",
+            winners: "人当選可能です",
+            endedAt: "終了済み",
+            units: {
+              seconds: "秒",
+              minutes: "分",
+              hours: "時間",
+              days: "日",
+              pluralS: false
+            }
+          }
+        });//givewaystart
+      }//startcommand
+});
 
 
 bot.login(process.env.DISCORD_BOT_TOKEN);

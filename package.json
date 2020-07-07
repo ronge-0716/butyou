@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/ronge-0716/butyou#readme",
   "dependencies": {
-    "discord.js": "^11.6.4"
+    "discord-giveaways": "^4.2.1",
+    "discord.js": "^11.6.4",
+    "ms": "^2.1.2"
   }
 }
