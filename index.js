@@ -405,7 +405,7 @@ bot.on('message', message =>{
 
 const { GiveawaysManager } = require("discord-giveaways");
 
-const manager = new GiveawaysManager(client, {
+const manager = new GiveawaysManager(bot, {
     storage: "./giveaways.json",
     updateCountdownEvery: 10000,
     default: {
