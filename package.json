@@ -1,0 +1,22 @@
+{
+  "name": "butyou",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ronge-0716/butyou.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ronge-0716/butyou/issues"
+  },
+  "homepage": "https://github.com/ronge-0716/butyou#readme",
+  "dependencies": {
+    "discord.js": "^11.6.4"
+  }
+}
