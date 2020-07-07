@@ -404,4 +404,4 @@ bot.on('message', message =>{
 })//グローバルチャット
 
 
-bot.login("NzA1NzE2MzE1MDM3NjMwNDY0.XwRPzg.wLeA7ImYjl_K3JO_98H0yQoUq6k");
+bot.login(process.env.DISCORD_BOT_TOKEN);
